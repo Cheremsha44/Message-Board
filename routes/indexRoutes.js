@@ -15,11 +15,11 @@ const messages = [
 ];
 
 indexRouter.get("/", (req, res) => {
-    res.send("Main route");
+    res.render("index", { title: "Message Board", messages: messages });
 });
 
 indexRouter.get("/new", (req, res) => {
-    res.send("Main route");
+    res.send("Main new route");
 });
 
 module.exports = indexRouter;
