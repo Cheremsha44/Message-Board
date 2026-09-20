@@ -3,11 +3,13 @@
     <title><%= title %></title>
   </head>
   <body>
+      <a href="/new">Write a message</a>
       <ul>
-        <% messages.map((message) => { %>
+        <% messages.map((message, index) => { %>
           <li><%= message.user %></li>
           <li><%= message.text %></li>
           <li><%= message.added %></li>
+          <a href="/messages/<%= index %>">Open</a>
         <% }) %>
       </ul>
   </body>

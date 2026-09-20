@@ -19,7 +19,25 @@ indexRouter.get("/", (req, res) => {
 });
 
 indexRouter.get("/new", (req, res) => {
-    res.send("Main new route");
+    res.render("form", { title: "new message" });
+});
+
+indexRouter.post("/new", (req, res) => {
+    messages.push({
+        text: req.body.message,
+        user: req.body.author,
+        added: new Date(),
+    });
+    res.redirect("/");
+});
+
+indexRouter.get("/messages/:id", (req, res) => {
+    const { id } = req.params;
+    const message = messages[id];
+    if (!message) {
+        res.status(404).send("Message not found");
+    }
+    res.render("messageDetails", { title: "message", message: message });
 });
 
 module.exports = indexRouter;

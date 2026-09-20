@@ -6,6 +6,8 @@ const indexRouter = require("./routes/indexRoutes");
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
+app.use(express.urlencoded({ extended: true }));
+
 app.use("/", indexRouter);
 
 const PORT = process.env.PORT || 3100;
