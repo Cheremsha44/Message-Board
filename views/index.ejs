@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Homepage</title>
+  </head>
+  <body>
+      <ul>
+        <% messages.map((message) => { %>
+          <li><%= message.user %></li>
+          <li><%= message.text %></li>
+          <li><%= message.added %></li>
+        <% }) %>
+      </ul>
+  </body>
+</html>
